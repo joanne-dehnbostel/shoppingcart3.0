@@ -103,7 +103,7 @@ const Products = (props) => {
     let name = e.target.name;
     let item = items.filter((item) => item.name == name);
     console.log(`add to Cart ${JSON.stringify(item)}`);
-    //Remove item from stock
+    // stock control loop with alert for empty bin
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       if (item[0].name == stock[i].name) {
@@ -121,7 +121,7 @@ const Products = (props) => {
   };
   const deleteCartItem = (index, name) => {
     let newCart = cart.filter((item, i) => index != i);
-    //Restock
+    //Restocking loop
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       if (name == stock[i].name) {
@@ -131,10 +131,11 @@ const Products = (props) => {
     setItems(stock);
     setCart(newCart);
   };
-
+const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
   let list = items.map((item, index) => {
-    let n = index + 1049;
-    let url = "https://picsum.photos/id/" + n + "/50/50";
+    //remove comments below to see random picsum photos instead of const photos above
+    //let n = index + 1049;
+    //let url = "https://picsum.photos/id/" + n + "/50/50";
 
     return (
       <li key={index}>
