@@ -139,7 +139,9 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
 
     return (
       <li key={index}>
-        <Image src={url} width={70}></Image>
+       //remove comment to see picsum
+                       //<Image src={url} width={70}></Image>
+                       <Image src={photos[index % 4]} width={70} ></Image>//removed roundedCircle
         <Button variant="primary" size="large">
           {item.name} - ${item.cost} - in-stock: {item.instock}
         </Button>
