@@ -130,7 +130,7 @@ const Products = (props) => {
     };
     setItems(stock);
     setCart(newCart);
-  };//remove line 134 below to see picsum images
+  }; //remove line 134 below to see picsum images
 const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
   let list = items.map((item, index) => {
     //remove comments below to see random picsum photos instead of const photos above
@@ -141,7 +141,7 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
       <li key={index}>
        
       
-                       <Image src={ photos[index % 4]} width={70} ></Image> //removed picsum image line removed roundedCircle for square image
+        <Image src={ photos[index % 4]} width={70} ></Image> //removed picsum image line removed roundedCircle for square image
         <Button variant="primary" size="large">
           {item.name} - ${item.cost} - in-stock: {item.instock}//added - in-stock:{item.instock}
         </Button>
