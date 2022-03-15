@@ -130,7 +130,8 @@ const Products = (props) => {
     };
     setItems(stock);
     setCart(newCart);
-  }; //remove line 134 below to see picsum imageslet list = items.map((item, index) => {
+  }; 
+  let list = items.map((item, index) => {
     let n = index + 1049;
     let url = "https://picsum.photos/id/" + n + "/50/50";
 
