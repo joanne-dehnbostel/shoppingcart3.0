@@ -131,7 +131,7 @@ const Products = (props) => {
     setItems(stock);
     setCart(newCart);
   }; 
-  let list = items.map((item, index) => {
+   let list = items.map((item, index) => {
     let n = index + 1049;
     let url = "https://picsum.photos/id/" + n + "/50/50";
 
