@@ -133,7 +133,7 @@ const Products = (props) => {
   };
 
   let list = items.map((item, index) => {
-    let n = index + 1049;
+    let n = index + 1044;
     let url = "https://picsum.photos/id/" + n + "/50/50";
 
     return (
