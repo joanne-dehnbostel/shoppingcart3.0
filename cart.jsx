@@ -138,7 +138,7 @@ const Products = (props) => {
 
     return (
       <li key={index}>
-        <Image src={url} width={70} roundedCircle></Image>
+        <Image src={url} width={70} Square></Image>
         <Button variant="primary" size="large">
           {item.name} - ${item.cost} - in-stock: {item.instock}
         </Button>
