@@ -108,7 +108,7 @@ const Products = (props) => {
     for (let i=0; i<stock.length; i++) {
       if (item[0].name == stock[i].name) {
         if (stock[i].instock == 0) {
-          alert(`Oops! Looks like we're out of ${stock[i].name}. Time to restock!`);
+          alert(`Sorry, The bin is empty, we're out of ${stock[i].name}.`);
           return;
         } else {
           stock[i].instock --;
