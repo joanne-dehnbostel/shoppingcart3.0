@@ -103,12 +103,12 @@ const Products = (props) => {
     let name = e.target.name;
     let item = items.filter((item) => item.name == name);
     console.log(`add to Cart ${JSON.stringify(item)}`);
-    // stock control loop with alert for empty bin
+    //Remove item from stock
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       if (item[0].name == stock[i].name) {
         if (stock[i].instock == 0) {
-          alert(`Sorry, The bin is empty, we're out of ${stock[i].name}.`);
+          alert(`Oops! Looks like we're out of ${stock[i].name}. Time to restock!`);
           return;
         } else {
           stock[i].instock --;
@@ -121,7 +121,7 @@ const Products = (props) => {
   };
   const deleteCartItem = (index, name) => {
     let newCart = cart.filter((item, i) => index != i);
-    //Restocking loop
+    //Restock
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       if (name == stock[i].name) {
@@ -130,8 +130,9 @@ const Products = (props) => {
     };
     setItems(stock);
     setCart(newCart);
-  }; 
-   let list = items.map((item, index) => {
+  };
+
+  let list = items.map((item, index) => {
     let n = index + 1049;
     let url = "https://picsum.photos/id/" + n + "/50/50";
 
@@ -158,8 +159,8 @@ const Products = (props) => {
           eventKey={1 + index}
         >
           <Card.Body>
-            $ {item.cost} from {item.country}<br/> //need to close this
-            Click again to remove //added
+            $ {item.cost} from {item.country}<br/>
+            Click again to remove
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -179,20 +180,20 @@ const Products = (props) => {
   };
 
   const checkOut = () => {
-    let costs = cart.map((item) => item.cost); 
+    let costs = cart.map((item) => item.cost);
     const reducer = (accum, current) => accum + current;
     let newTotal = costs.reduce(reducer, 0);
     console.log(`total updated to ${newTotal}`);
     return newTotal;
   };
-  // implement the restockProducts function
+  // TODO: implement the restockProducts function
   const restockProducts = (url) => {
     doFetch(url);
       let newItems = data.map((item) => {
-      let { name, country, cost, instock } = item.attributes;//added item.attributes
+      let { name, country, cost, instock } = item.attributes;
       return {name, country, cost, instock };
     });
-    // loop to add stock to existing item list
+    // Add stock to existing item list
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       for (let j=0; j<newItems.length; j++) {
@@ -248,4 +249,3 @@ const Products = (props) => {
 };
 // ========================================
 ReactDOM.render(<Products />, document.getElementById("root"));
-
