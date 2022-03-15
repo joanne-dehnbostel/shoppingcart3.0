@@ -140,8 +140,8 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
     return (
       <li key={index}>
        //remove comment to see picsum
-                       //<Image src={url} width={70}></Image>
-                       <Image src={photos[index % 4]} width={70} ></Image>//remove this line to see picsum removed roundedCircle for square image
+       //<Image src={url} width={70}></Image>
+                       <Image src={photos[index % 4]} width={70} ></Image> //remove this line to see picsum removed roundedCircle for square image
         <Button variant="primary" size="large">
           {item.name} - ${item.cost} - in-stock: {item.instock}//added - in-stock:{item.instock}
         </Button>
