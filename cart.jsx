@@ -143,7 +143,7 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
                        //<Image src={url} width={70}></Image>
                        <Image src={photos[index % 4]} width={70} ></Image>//remove this line to see picsum removed roundedCircle for square image
         <Button variant="primary" size="large">
-          {item.name} - ${item.cost} - in-stock: {item.instock}
+          {item.name} - ${item.cost} - in-stock: {item.instock}//added - in-stock:{item.instock}
         </Button>
         <input name={item.name} type="submit" onClick={addToCart}></input>
       </li>
@@ -162,8 +162,8 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
           eventKey={1 + index}
         >
           <Card.Body>
-            $ {item.cost} from {item.country}<br/>
-            Click again to remove
+            $ {item.cost} from {item.country}<br/> //need to close this
+            Click again to remove //added
           </Card.Body>
         </Accordion.Collapse>
       </Card>
@@ -183,20 +183,20 @@ const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
   };
 
   const checkOut = () => {
-    let costs = cart.map((item) => item.cost);
+    let costs = cart.map((item) => item.cost); 
     const reducer = (accum, current) => accum + current;
     let newTotal = costs.reduce(reducer, 0);
     console.log(`total updated to ${newTotal}`);
     return newTotal;
   };
-  // TODO: implement the restockProducts function
+  // implement the restockProducts function
   const restockProducts = (url) => {
     doFetch(url);
       let newItems = data.map((item) => {
-      let { name, country, cost, instock } = item.attributes;
+      let { name, country, cost, instock } = item.attributes;//added item.attributes
       return {name, country, cost, instock };
     });
-    // Add stock to existing item list
+    // loop to add stock to existing item list
     let stock = items;
     for (let i=0; i<stock.length; i++) {
       for (let j=0; j<newItems.length; j++) {
